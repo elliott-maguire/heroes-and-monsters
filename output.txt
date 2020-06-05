@@ -1,0 +1,287 @@
+Choose a hero:
+1. Warrior
+2. Sorceress
+3. Thief
+1
+Enter character name: erik
+*---||---*
+|    &   |
+-  V     -
+-        -
+|        |
+*---||---*
+--x:3 y:2--
+( HP: 125 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+erik received an item: Vision Potion.
+Press 'Enter' to continue...
+
+
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+3
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:3 y:2--
+( HP: 125 ) [ Health Potion(s): 0 ] < Vision Potion(s): 1 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+2
+Inventory:
+1) Vision Potion
+
+0) Cancel
+Select an item you like would to use:
+1
+erik drinks vision potion. erik becomes shocked to find they can now see 360 degrees in all directions.
+Press 'Enter' to continue...
+
+*--------**--------**--------**--------**--------*
+|        ||        ||        ||        ||        |
+|  P     --  P     --        --        --        |
+|        --        --     X  --        --        |
+|        ||        ||        ||        ||        |
+*---||---**---||---**---||---**---||---**---||---*
+*---||---**---||---**---||---**---||---**---||---*
+|        ||        ||        ||        ||        |
+|  P     --        --        --        --        |
+|        --        --        --        --        |
+|        ||        ||        ||        ||        |
+*---||---**---||---**---||---**---||---**---||---*
+*---||---**---||---**---||---**---||---**---||---*
+|        ||        ||        ||        ||        |
+|        --  H     --        --  P     --        |
+|        --     X  --        --        --        |
+|        ||        ||        ||        ||        |
+*---||---**---||---**---||---**---||---**---||---*
+*---||---**---||---**---||---**---||---**---||---*
+|        ||        ||    &   ||        ||        |
+|        --        --        --        --  V     |
+|     X  --     X  --        --        --        |
+|        ||        ||        ||        ||        |
+*---||---**---||---**---||---**---||---**---||---*
+*---||---**---||---**---||---**---||---**---||---*
+|        ||        ||        ||        ||        |
+|  H     --        --        --        --        |
+|     X  --        --        --        --        |
+|        ||        ||        ||        ||        |
+*--------**--------**--------**--------**--------*
+--x:3 y:2--
+( HP: 125 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+1
+Move:
+1) North
+2) South
+3) West
+4) East
+3
+*---||---*
+|    &   |
+-        -
+-     X  -
+|        |
+*---||---*
+--x:3 y:1--
+( HP: 125 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+-- A wild Oscar the Ogre appears! --
+Press 'Enter' to continue...
+
+erik battles Oscar the Ogre
+---------------------------------------------
+Number of turns this round is: 2
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik failed to land a crushing blow
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik failed to land a crushing blow
+
+Oscar the Ogre slowly swings a club toward's erik:
+erik hit  for <39> points damage.
+erik now has 86 hit points remaining.
+
+
+
+-->q to quit, any other key to continue: Number of turns this round is: 2
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik lands a CRUSHING BLOW for 108 damage!
+Oscar the Ogre hit  for <108> points damage.
+Oscar the Ogre now has 92 hit points remaining.
+
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik failed to land a crushing blow
+
+Oscar the Ogre slowly swings a club toward's erik:
+erik hit  for <43> points damage.
+erik now has 43 hit points remaining.
+
+
+
+-->q to quit, any other key to continue: Number of turns this round is: 2
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik lands a CRUSHING BLOW for 138 damage!
+Oscar the Ogre hit  for <138> points damage.
+Oscar the Ogre now has 0 hit points remaining.
+
+Oscar the Ogre has been killed :-(
+Number of turns remaining is: 1
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 1
+erik swings a mighty sword at Oscar the Ogre:
+Oscar the Ogre hit  for <38> points damage.
+Oscar the Ogre now has 0 hit points remaining.
+
+Oscar the Ogre has been killed :-(
+
+
+-->q to quit, any other key to continue: erik was victorious!
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:3 y:1--
+( HP: 43 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+3
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:3 y:1--
+( HP: 43 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+1
+Move:
+1) North
+2) South
+3) West
+4) East
+1
+*---||---*
+|    &   |
+-  H     -
+-     X  -
+|        |
+*---||---*
+--x:2 y:1--
+( HP: 43 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+erik received an item: Health Potion.
+Press 'Enter' to continue...
+
+-- A wild Gnarltooth the Gremlin appears! --
+Press 'Enter' to continue...
+
+
+erik battles Gnarltooth the Gremlin
+---------------------------------------------
+Number of turns this round is: 1
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik failed to land a crushing blow
+
+Gnarltooth the Gremlin jabs his kris at erik:
+erik hit  for <23> points damage.
+erik now has 20 hit points remaining.
+
+
+
+-->q to quit, any other key to continue: Number of turns this round is: 1
+1. Attack Opponent
+2. Crushing Blow on Opponent
+Choose an option: 2
+erik lands a CRUSHING BLOW for 170 damage!
+Gnarltooth the Gremlin hit  for <170> points damage.
+Gnarltooth the Gremlin now has 0 hit points remaining.
+
+Gnarltooth the Gremlin has been killed :-(
+
+-->q to quit, any other key to continue: erik was victorious!
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:2 y:1--
+( HP: 20 ) [ Health Potion(s): 1 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+2
+Inventory:
+1) Health Potion
+
+0) Cancel
+Select an item you like would to use:
+1
+erik drinks the potion, raising their HP by 15
+Press 'Enter' to continue...
+
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:2 y:1--
+( HP: 35 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
+3
+*---||---*
+|    &   |
+-        -
+-        -
+|        |
+*---||---*
+--x:2 y:1--
+( HP: 35 ) [ Health Potion(s): 0 ] < Vision Potion(s): 0 > || Pillars Found: 0 ||
+What would you like to do?
+1) Move
+2) Use item
+3) Save game
+4) Load game
