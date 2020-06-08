@@ -4,7 +4,7 @@ import Character.Character;
 
 public class Warrior extends Hero {
 
-    public Warrior() {
+    Warrior() {
         super("Warrior", 125, 4, .8, 35, 60, .2, "swings a mighty sword at", "Crushing Blow on Opponent");
     }
 

@@ -6,7 +6,7 @@ public class Sorceress extends Hero {
     private static final int MIN_ADD = 25;
     private static final int MAX_ADD = 50;
 
-    public Sorceress() {
+    Sorceress() {
         super("Sorceress", 75, 5, .7, 25, 50, .3, "casts a spell of fireball at","Increase Hit Points");
     }
 
