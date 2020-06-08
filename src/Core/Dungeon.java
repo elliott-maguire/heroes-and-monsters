@@ -22,14 +22,14 @@ public class Dungeon {
         choice = Keyboard.readInt();
         switch (choice) {
             case 1:
-                return new Warrior();
+                return HeroFactory.createWarrior();
             case 2:
-                return new Sorceress();
+                return HeroFactory.createSorceress();
             case 3:
-                return new Thief();
+                return HeroFactory.createThief();
             default:
                 System.out.println("invalid choice, returning Thief");
-                return new Thief();
+                return HeroFactory.createThief();
         }
     }
 
