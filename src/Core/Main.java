@@ -3,7 +3,7 @@ package Core;
 import Character.Hero.*;
 import Character.Monster.*;
 
-public class Dungeon {
+public class Main {
     public static void main(String[] args) {
         Hero theHero;
         Monster theMonster;
