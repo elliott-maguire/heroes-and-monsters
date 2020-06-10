@@ -22,4 +22,6 @@ public enum Wall {
                 return "NULL";
         }
     }
+
+
 }

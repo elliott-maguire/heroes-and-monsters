@@ -24,66 +24,84 @@ public class Room {
     public Boolean hasMonster(){
         return !(this.monster == null);
     }
-
     public Boolean hasHero(){
         return !(this.hero == null);
     }
-
     public Boolean hasItem(){
         return !(this.item == null);
     }
 
+    public Item getItem(){
+        return this.item;
+    }
     public Item takeItem(){
         Item temp = this.item;
         this.item = null;
         return temp;
     }
+    public Monster getMonster(){
+        return this.monster;
+    }
+
+
+    public void setItem(Item i){
+        this.item = i;
+    }
+    public void setHero(Hero h){
+        this.hero = h;
+    }
+    public void setMonster(Monster m){
+        this.monster = m;
+    }
 
     public void setUpperWall(Wall w){
         this.up = w;
     }
-
     public void setLowerWall(Wall w){
         this.down = w;
     }
-
     public void setLeftWall(Wall w){
         this.left = w;
     }
-
     public void setRightWall(Wall w){
         this.right = w;
     }
 
+    public Wall getUp(){
+        return this.up;
+    }
+    public Wall getDown(){
+        return this.down;
+    }
+    public Wall getLeft(){
+        return this.left;
+    }
+    public Wall getRight(){
+        return this.right;
+    }
 
-    //non functional
-    /*
-    public Wall
-
-    private static String getRowString(int x, Room room){
+    private static String makeRowString(int x, Room room){
         String row = "ERROR";
 
         switch(x){
             case 0:
-                row = u.toString();
+                row = room.getUp().toString();
                 break;
             case 1:
-                //row = "" + l.toString()
+                String m = (room.hasMonster() ? room.getMonster().getIcon()+"" : " ");
+                String h = (room.hasHero()? "&" : " ");
+                String i = (room.hasItem()? room.getItem().getIcon()+"" : " ");
+                row = "" + room.getLeft().toString() + m + h + i + room.getRight().toString();
                 break;
             case 2:
-                row = d.toString();
+                row = room.getDown().toString();
 
         }
 
-
-
         return row;
     }
-
-
     public String getRow(int x){
-        return getRowString(x, this.up, this.down, this.left, this.right);
+        return makeRowString(x, this);
     }
-*/
 
 }
