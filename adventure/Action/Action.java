@@ -8,9 +8,9 @@ public abstract class Action {
     protected final int effect;
 
     protected Action(String name, String description, int damage) {
-        this.name = "Strike";
-        this.description = "A basic strike with a fist or weapon.";
-        this.effect = 10;
+        this.name = name;
+        this.description = description;
+        this.effect = damage;
     }
 
     public void printName() {
