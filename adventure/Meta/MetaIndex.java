@@ -1,24 +1,24 @@
 package adventure.Meta;
 
 public class MetaIndex {
-    static Meta knightMeta = new Meta("Knight", 75, 20, 20, 10);
-    static Meta paladinMeta = new Meta("Paladin", 90, 20, 20, 10);
-    static Meta rogueMeta = new Meta("Rogue", 50, 10, 10, 20);
-    static Meta warriorMeta = new Meta("Warrior", 70, 30, 10, 10);
-    static Meta wizardMeta = new Meta("Wizard", 50, 10, 10, 10);
+    private static Meta knightMeta = new Meta("Knight", 75, 20, 20, 10);
+    private static Meta paladinMeta = new Meta("Paladin", 90, 20, 20, 10);
+    private static Meta rogueMeta = new Meta("Rogue", 50, 10, 10, 20);
+    private static Meta warriorMeta = new Meta("Warrior", 70, 30, 10, 10);
+    private static Meta wizardMeta = new Meta("Wizard", 50, 10, 10, 10);
 
-    static Meta ogreMeta = new Meta("Ogre", 75, 20, 20, 5);
-    static Meta skeletonMeta = new Meta("Skeleton", 50, 20, 20, 10);
-    static Meta spiderMeta = new Meta("Spider", 30, 10, 10, 30);
-    static Meta witchMeta = new Meta("Witch", 50, 15, 10, 10);
-    static Meta zombieMeta = new Meta("Zombie", 60, 10, 10, 5);
+    private static Meta ogreMeta = new Meta("Ogre", 75, 20, 20, 5);
+    private static Meta skeletonMeta = new Meta("Skeleton", 50, 20, 20, 10);
+    private static Meta spiderMeta = new Meta("Spider", 30, 10, 10, 30);
+    private static Meta witchMeta = new Meta("Witch", 50, 15, 10, 10);
+    private static Meta zombieMeta = new Meta("Zombie", 60, 10, 10, 5);
 
-    static Meta easyMonsterMeta = new Meta("Easy Monster", 30, 5, 5, 5);
-    static Meta mediumMonsterMeta = new Meta("Medium Monster", 60, 10, 10, 10);
-    static Meta hardMonsterMeta = new Meta("Hard Monster", 90, 25, 25, 20);
+    private static Meta easyMonsterMeta = new Meta("Easy Monster", 30, 5, 5, 5);
+    private static Meta mediumMonsterMeta = new Meta("Medium Monster", 60, 10, 10, 10);
+    private static Meta hardMonsterMeta = new Meta("Hard Monster", 90, 25, 25, 20);
 
-    static Meta smallMonsterMeta = new Meta("Small Monster", 10, 5, 5, 20);
-    static Meta bigMonsterMeta = new Meta("Big Monster", 75, 20, 20, 5);
+    private static Meta smallMonsterMeta = new Meta("Small Monster", 10, 5, 5, 20);
+    private static Meta bigMonsterMeta = new Meta("Big Monster", 75, 20, 20, 5);
 
     public static Meta getKnightMeta() {
         return knightMeta;
