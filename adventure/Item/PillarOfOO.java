@@ -16,6 +16,10 @@ public class PillarOfOO implements Item {
 
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     @Override
     public char getIcon() {
         return icon;

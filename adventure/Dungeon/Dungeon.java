@@ -3,6 +3,7 @@ package adventure.Dungeon;
 import adventure.Character.Hero.Hero;
 import adventure.Character.Monster.Monster;
 import adventure.Character.Monster.MonsterFactory;
+
 import adventure.Item.Item;
 import adventure.Item.ItemFactory;
 
@@ -12,8 +13,8 @@ import java.util.Random;
 public class Dungeon {
     public static final int _ROW = 5;
     public static final int _COL = 5;
-    private static final int _ITEM_POSIBILITY = 15;
-    private static final int _MONSTER_POSSIBILITY = 20;
+    private static final int _ITEM_POSIBILITY = 20;
+    private static final int _MONSTER_POSSIBILITY = 30;
     private static final int _DRAW_DIST = 3;
     private ArrayList<Room> board;
 

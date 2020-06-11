@@ -46,26 +46,26 @@ public class DungeonAdventure {
             switch (choice) {
                 case 1:
                     hero = HeroFactory.makeWarrior(name);
-
+                    break;
                 case 2:
                     hero = HeroFactory.makeRogue(name);
-
+                    break;
                 case 3:
                     hero = HeroFactory.makeKnight(name);
-
+                    break;
                 case 4:
                     hero = HeroFactory.makePaladin(name);
-
+                    break;
                 case 5:
                     hero = HeroFactory.makeWizard(name);
-
+                    break;
                 default:
                     System.out.println("INVALID INPUT: PRESS ENTER TO CONTINUE");
                     kb.next();
 
             }//end switch
 
-        }while(hero != null);
+        }while(hero == null);
     }
 
     private static boolean playerTakeTurn() {
@@ -159,29 +159,29 @@ public class DungeonAdventure {
             System.out.println("4) East");
 
             c = kb.nextInt();
-        }while(c < 4 && c > 0);
+        }while(c > 4 && c < 0);
 
 
 
         switch(c){
             case 1:
-                if( x != 0 ){
-                    x--;
-                }
-                break;
-            case 2:
-                if( x != Dungeon._ROW-1 ){
-                    x++;
-                }
-                break;
-            case 3:
-                if( y != 0 ) {
+                if( y != 0 ){
                     y--;
                 }
                 break;
-            case 4:
-                if( y != Dungeon._COL-1 ) {
+            case 2:
+                if( y != Dungeon._ROW-1 ){
                     y++;
+                }
+                break;
+            case 3:
+                if( x != 0 ) {
+                    x--;
+                }
+                break;
+            case 4:
+                if( x != Dungeon._COL-1 ) {
+                    x++;
                 }
                 break;
 
@@ -221,8 +221,9 @@ public class DungeonAdventure {
 
     }
     private static void pause(){
+
         System.out.println("Press 'Enter' to continue...");
-        kb.next();
+        kb.nextLine();kb.skip("");
     }
 
     private static boolean playAgain() {
@@ -267,7 +268,7 @@ public class DungeonAdventure {
     }
 
     private static void battleChoices(Monster opponent) {
-        int numTurns = 1;
+        int numTurns = 0;
         do{
             battleChoicesInput(opponent);
         }while(numTurns > 0);

@@ -30,19 +30,25 @@ public abstract class Hero extends Character {
     }
 
     public void getItem(Item i){
+        String found = "You found a ";
         switch(i.getIcon()){
             case 'H':
+                found += "Health Potion!";
                 this.healthPotions.add((HealthPotion) i);
                 break;
 
             case 'V':
+                found += "Vision Potion!";
                 this.visionPotions.add((VisionPotion) i);
                 break;
 
             case 'P':
+                found += "Pillar of OO!";
                 this.pillarOfOOs.add((PillarOfOO) i);
                 break;
         }
+
+        System.out.println(found);
     }
 
     public String getName() {

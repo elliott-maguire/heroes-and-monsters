@@ -8,9 +8,9 @@ public class MetaIndex {
     private static Meta wizardMeta = new Meta("Wizard", 50, 10, 10, 10);
 
     private static Meta ogreMeta = new Meta("Ogre", 75, 20, 20, 5);
-    private static Meta skeletonMeta = new Meta("Skeleton", 50, 20, 20, 10);
+    private static Meta skeletonMeta = new Meta("Skeleton", 50, 20, 20, 9);
     private static Meta spiderMeta = new Meta("Spider", 30, 10, 10, 30);
-    private static Meta witchMeta = new Meta("Witch", 50, 15, 10, 10);
+    private static Meta witchMeta = new Meta("Witch", 50, 15, 10, 11);
     private static Meta zombieMeta = new Meta("Zombie", 60, 10, 10, 5);
 
     private static Meta easyMonsterMeta = new Meta("Easy Monster", 30, 5, 5, 5);
