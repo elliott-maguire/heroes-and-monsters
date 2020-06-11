@@ -12,27 +12,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class ActionTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
-    Action testAction = new Charge();
+    private final Action testAction = new Charge();
 
-    @Before
-    void setUpStream() {
-        System.setOut(new PrintStream(outContent));
-    }
 
     @Test
     void printName() {
+        System.setOut(new PrintStream(outContent));
         testAction.printName();
-        assertEquals("Charge\n", outContent.toString());
+        assertEquals("Charge\n".trim(), outContent.toString().trim());
+        System.setOut(originalOut);
     }
 
     @Test
     void printDescription() {
+        System.setOut(new PrintStream(outContent));
         testAction.printDescription();
-        assertEquals("A heavy, unstoppable attack with a run-up.\n", outContent.toString());
-    }
-
-    @After
-    void restoreStream() {
+        assertEquals("A heavy, unstoppable attack with a run-up.\n".trim(), outContent.toString().trim());
         System.setOut(originalOut);
     }
+
 }
