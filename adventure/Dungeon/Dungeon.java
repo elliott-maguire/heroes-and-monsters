@@ -66,6 +66,13 @@ public class Dungeon {
 
     }
 
+    public boolean itemInRoom(int x, int y) {
+
+        int index = boardIndex(x,y);
+        this.board.get(index).hasItem();
+
+    }
+
 
     /**
      * Iterate through each `Room` and call their own `populate` methods.
@@ -149,5 +156,10 @@ public class Dungeon {
 
         System.out.println(print);
 
+    }
+
+    public Item takeItem(int x, int y) {
+
+        this.board.get(boardIndex(x,y)).takeItem();
     }
 }

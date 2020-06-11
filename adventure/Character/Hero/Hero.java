@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import adventure.Action.Action;
 import adventure.Character.Character;
 import adventure.Item.HealthPotion;
+import adventure.Item.Item;
 import adventure.Item.PillarOfOO;
 import adventure.Item.VisionPotion;
 import adventure.Meta.Meta;
@@ -23,6 +24,22 @@ public abstract class Hero extends Character {
         this.healthPotions = new ArrayList<>();
         this.visionPotions = new ArrayList<>();
         this.pillarOfOOs = new ArrayList<>();
+    }
+
+    public void getItem(Item i){
+        switch(i.getIcon()){
+            case 'H':
+                this.healthPotions.add((HealthPotion) i);
+                break;
+
+            case 'V':
+                this.visionPotions.add((VisionPotion) i);
+                break;
+
+            case 'P':
+                this.pillarOfOOs.add((PillarOfOO) i);
+                break;
+        }
     }
 
     public String getName() {

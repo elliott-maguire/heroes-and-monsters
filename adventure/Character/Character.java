@@ -16,6 +16,10 @@ public abstract class Character {
         this.specialAction = specialAction;
     }
 
+    public boolean isAlive(){
+        return (this.getCurrentHealth() > 0);
+    }
+
     public int getCurrentHealth() {
         return currentHealth;
     }
