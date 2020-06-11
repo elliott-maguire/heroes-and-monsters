@@ -3,6 +3,7 @@ package adventure.Character;
 import adventure.Action.Action;
 import adventure.Meta.Meta;
 
+
 public abstract class Character {
     public final Meta meta;
     private int currentHealth;
@@ -64,5 +65,9 @@ public abstract class Character {
      */
     public void doSpecialAttack(Character opponent) {
         this.specialAction.act(this, opponent);
+    }
+
+    public Action getSpecialAction() {
+        return specialAction;
     }
 }

@@ -3,6 +3,7 @@ package adventure.Dungeon;
 import adventure.Character.Hero.Hero;
 import adventure.Character.Hero.HeroFactory;
 import adventure.Character.Monster.Monster;
+import adventure.Character.Character;
 import adventure.Item.Item;
 
 import java.util.Scanner;
@@ -157,6 +158,40 @@ public class DungeonAdventure {
         }
     }
 
+    protected void battleChoicesInput(Character opponent){
+        int choice;
+
+        System.out.println("1. Attack Opponent");
+        System.out.print("2. ");
+        hero.getSpecialAction().printName();
+        System.out.print("\nChoose an option: ");
+        choice = Keyboard.readInt();
+
+        switch (choice) {
+            case 1:
+                hero.doMainAttack(opponent);
+                break;
+            case 2:
+                hero.doSpecialAttack(opponent);
+                break;
+            default:
+                System.out.println("invalid choice!");
+        }
+
+        numTurns--;
+        if (numTurns > 0)
+            System.out.println("Number of turns remaining is: " + numTurns);
+
+
+    }
+
+    //default battleChoices behavior
+    public void battleChoices(Character opponent) {
+        numberOfTurns(opponent);
+        do{
+            battleChoicesInput(opponent);
+        }while(numTurns > 0);
+    }
 
 
 
