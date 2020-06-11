@@ -14,6 +14,10 @@ public abstract class Monster extends Character {
         return ( m.getCurrentHealth() > 0 ? 'X' : '~');
     }
 
+    public String getName(){
+        return this.meta.getType();
+    }
+
     public char getIcon(){
         return getIcon(this);
     }
