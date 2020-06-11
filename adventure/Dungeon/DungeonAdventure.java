@@ -3,13 +3,14 @@ package adventure.Dungeon;
 import adventure.Character.Hero.Hero;
 import adventure.Character.Hero.HeroFactory;
 import adventure.Character.Monster.Monster;
-import adventure.Character.Character;
 import adventure.Item.Item;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class DungeonAdventure {
 
+    private static final int _CHEAT = 1337;
     private static Scanner kb;
     private static Hero hero;
     private static Dungeon level1;
@@ -36,8 +37,8 @@ public class DungeonAdventure {
                 "1. Warrior\n" +
                 "2. Rogue\n" +
                 "3. Knight\n" +
-                "4. Thief\n" +
-                "5. Thief\n" +;
+                "4. Paladin\n" +
+                "5. Wizard\n" );
 
 
             choice = kb.nextInt();
@@ -67,6 +68,139 @@ public class DungeonAdventure {
         }while(hero != null);
     }
 
+    private static boolean playerTakeTurn() {
+        if(thereIsItem()){
+            pickUpItem();
+        }
+        if(checkForFight()) {
+
+            System.out.println("What would you like to do?");
+            System.out.println("1) Move");
+            System.out.println("2) Use Health Potion");
+            System.out.println("3) Use Vision Potion");
+            System.out.println("4) Pillars of OO");
+            int x = kb.nextInt();
+
+            switch (x) {
+                case 1:
+                    movePlayer();
+                    return true;
+                case 2:
+                    hero.useHealthPotion();
+                    return true;
+                case 3:
+                    hero.useVisionPotion();
+                    return true;
+                case 4:
+                    hero.readPillars();
+                    return true;
+                case _CHEAT:
+                    cheatMenu();
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static void cheatMenu() {
+    }
+
+    private static void draw(){
+        drawHeroView();
+        System.out.println( "--x:" + x + " y:" + y + "--");
+        System.out.println( hero.toString() );
+    }
+
+    private static void drawHeroView() {
+
+        switch (hero.getVisionLevel()){
+            case 0:
+                level1.drawRoom(x,y);
+                break;
+            case 1:
+                level1.drawExtendedView(x,y);
+                hero.setVisionLevel(0);
+                break;
+            default:
+                level1.drawBoard();
+        }
+
+    }
+
+    private static void enterRoom(){
+        level1.enterRoom( x, y , hero);
+    }
+
+    private static void leaveRoom(){
+        level1.leaveRoom();
+    }
+
+    private static boolean checkForFight(){
+        boolean win = true;
+        if (level1.hasMonster(x,y)) {
+            Monster m = level1.getMonster(x,y);
+            if (m.isAlive()) {
+                win = battle(level1.getMonster(x, y));
+                draw();
+            }
+        }
+        return win;
+    }
+
+    private static void movePlayer(){
+        int c = 0;
+
+        do {
+            System.out.println("Move:");
+            System.out.println("1) North");
+            System.out.println("2) South");
+            System.out.println("3) West");
+            System.out.println("4) East");
+
+            c = kb.nextInt();
+        }while(c < 4 && c > 0);
+
+
+
+        switch(c){
+            case 1:
+                if( x != 0 ){
+                    x--;
+                }
+                break;
+            case 2:
+                if( x != Dungeon._ROW-1 ){
+                    x++;
+                }
+                break;
+            case 3:
+                if( y != 0 ) {
+                    y--;
+                }
+                break;
+            case 4:
+                if( y != Dungeon._COL-1 ) {
+                    y++;
+                }
+                break;
+
+        }
+
+            leaveRoom();
+            enterRoom();
+
+    }
+
+    private static void spawnPlayer(){
+        Random rand = new Random();
+
+        x = rand.nextInt(level1._ROW);
+        y = rand.nextInt(level1._COL);
+
+        enterRoom();
+    }
+
     private static boolean thereIsItem(){
         return level1.itemInRoom( x, y );
     }
@@ -77,10 +211,11 @@ public class DungeonAdventure {
 
         do{
             initializeFields();
+            spawnPlayer();
 
             do {
                 draw();
-            }while(playerChoice());
+            }while(playerTakeTurn());
 
         }while(playAgain());
 
@@ -90,20 +225,52 @@ public class DungeonAdventure {
         kb.next();
     }
 
-    private static boolean playAgain()
-    {
+    private static boolean playAgain() {
         char again;
 
         System.out.println("Play again (y/n)?");
         again = kb.next().charAt(0);
 
         return (again == 'Y' || again == 'y');
-    }//end playAgain method
+    }
 
-    private static boolean playerChoice() {
+    private static void battleChoicesInput(Monster opponent){
+        int choice;
+        int numTurns =1;
+
+        System.out.println("1. Attack Opponent");
+        System.out.print("2. ");
+        hero.getSpecialAction().printName();
+        System.out.println("3. Use Health Potion");
+        System.out.print("\nChoose an option: ");
+        choice = kb.nextInt();
+
+        switch (choice) {
+            case 1:
+                hero.doMainAttack(opponent);
+                break;
+            case 2:
+                hero.doSpecialAttack(opponent);
+                break;
+            case 3:
+                hero.useHealthPotion();
+                break;
+            default:
+                System.out.println("invalid choice!");
+        }
+
+        numTurns--;
+        if (numTurns > 0)
+            System.out.println("Number of turns remaining is: " + numTurns);
 
 
-        return false;
+    }
+
+    private static void battleChoices(Monster opponent) {
+        int numTurns = 1;
+        do{
+            battleChoicesInput(opponent);
+        }while(numTurns > 0);
     }
 
     private static boolean battle( Monster m){
@@ -121,11 +288,11 @@ public class DungeonAdventure {
         while (hero.isAlive() && m.isAlive() && pause != 'q')
         {
             //hero goes first
-            hero.battleChoices(theMonster);
+            battleChoices(m);
 
             //monster's turn (provided it's still alive!)
             if (m.isAlive())
-                m.attack(hero);
+                m.doMainAttack(hero);
 
             //let the player bail out if desired
             System.out.print("\n-->q to quit, any other key to continue: ");
@@ -134,11 +301,11 @@ public class DungeonAdventure {
         }//end battle loop
 
         if (!m.isAlive()) {
-            System.out.println(theHero.getName() + " was victorious!");
+            System.out.println(hero.getName() + " was victorious!");
 
         }
-        else if (!theHero.isAlive()) {
-            System.out.println(theHero.getName() + " was defeated :-(");
+        else if (!hero.isAlive()) {
+            System.out.println(hero.getName() + " was defeated :-(");
             return false;
         }
         else//both are alive so user quit the game
@@ -158,40 +325,6 @@ public class DungeonAdventure {
         }
     }
 
-    protected void battleChoicesInput(Character opponent){
-        int choice;
-
-        System.out.println("1. Attack Opponent");
-        System.out.print("2. ");
-        hero.getSpecialAction().printName();
-        System.out.print("\nChoose an option: ");
-        choice = Keyboard.readInt();
-
-        switch (choice) {
-            case 1:
-                hero.doMainAttack(opponent);
-                break;
-            case 2:
-                hero.doSpecialAttack(opponent);
-                break;
-            default:
-                System.out.println("invalid choice!");
-        }
-
-        numTurns--;
-        if (numTurns > 0)
-            System.out.println("Number of turns remaining is: " + numTurns);
-
-
-    }
-
-    //default battleChoices behavior
-    public void battleChoices(Character opponent) {
-        numberOfTurns(opponent);
-        do{
-            battleChoicesInput(opponent);
-        }while(numTurns > 0);
-    }
 
 
 

@@ -1,5 +1,6 @@
 package adventure.Dungeon;
 
+import adventure.Character.Hero.Hero;
 import adventure.Character.Monster.Monster;
 import adventure.Character.Monster.MonsterFactory;
 import adventure.Item.Item;
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Dungeon {
-    private static final int _ROW = 5;
-    private static final int _COL = 5;
+    public static final int _ROW = 5;
+    public static final int _COL = 5;
     private static final int _ITEM_POSIBILITY = 15;
     private static final int _MONSTER_POSSIBILITY = 20;
     private static final int _DRAW_DIST = 3;
@@ -36,6 +37,9 @@ public class Dungeon {
         return (x % _ROW) + (y * _COL);
     }
 
+    private Room getRoom(int x, int y){
+        return this.board.get(boardIndex(x,y));
+    }
 
     /**
      * Build new list of Rooms for board
@@ -68,8 +72,7 @@ public class Dungeon {
 
     public boolean itemInRoom(int x, int y) {
 
-        int index = boardIndex(x,y);
-        this.board.get(index).hasItem();
+        return getRoom(x,y).hasItem();
 
     }
 
@@ -160,6 +163,64 @@ public class Dungeon {
 
     public Item takeItem(int x, int y) {
 
-        this.board.get(boardIndex(x,y)).takeItem();
+       return getRoom(x,y).takeItem();
+    }
+
+    public void enterRoom(int x, int y, Hero h) {
+        getRoom(x,y).setHero(h);
+    }
+
+    public void leaveRoom() {
+        for(Room room: this.board){
+            if(room.hasHero()){
+                room.setHero(null);
+                return;
+            }
+        }
+    }
+
+    public boolean hasMonster(int x, int y) {
+        return getRoom(x,y).hasMonster();
+    }
+
+    public Monster getMonster(int x, int y) {
+        return getRoom(x,y).getMonster();
+    }
+
+    public void drawExtendedView(int x, int y) {
+        int x1 = x-1;
+        int y1 = y-1;
+
+        String fill ="";
+        for(int fil = 0; fil < _DRAW_DIST; fil++){
+            fill += Wall.FILLER;
+        }
+        fill += "\n";
+
+        String print = "";
+
+        for(int i = y-1; i < _DRAW_DIST; i++){
+            for(int j = 0; j< _DRAW_DIST; j++) {
+
+                if(j==1)
+                    print += fill;
+
+                for (int k = x - 1; k < _DRAW_DIST; k++) {
+                    if (i >= 0 && k >= 0 && i < _ROW && k < _COL) {
+                        print += getRoom(k, i).getRow(j);
+                    }
+
+                }
+
+                print+="\n";
+
+                if(j==1)
+                    print += fill;
+
+            }
+        }
+
+        System.out.println(print);
+
     }
 }

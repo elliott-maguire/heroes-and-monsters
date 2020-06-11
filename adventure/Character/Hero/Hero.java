@@ -12,6 +12,7 @@ import adventure.Meta.Meta;
 
 public abstract class Hero extends Character {
     private final String name;
+    private int visionLevel;
     private ArrayList<HealthPotion> healthPotions;
     private ArrayList<VisionPotion> visionPotions;
     private ArrayList<PillarOfOO> pillarOfOOs;
@@ -24,6 +25,8 @@ public abstract class Hero extends Character {
         this.healthPotions = new ArrayList<>();
         this.visionPotions = new ArrayList<>();
         this.pillarOfOOs = new ArrayList<>();
+
+        this.visionLevel = 0;
     }
 
     public void getItem(Item i){
@@ -71,8 +74,38 @@ public abstract class Hero extends Character {
         if (this.visionPotions.toArray().length > 0) {
             VisionPotion potion = this.visionPotions.remove(0);
             potion.use(this);
+            visionLevel = 1;
         } else {
             System.out.println("You don't have any vision potions left!");
         }
     }
+
+    public void readPillars(){
+        int s = this.pillarOfOOs.size();
+
+        System.out.println("You have " + s + " pillar" +(s>1?"s" :"" ) +" of OO.");
+
+        if(s > 0) {
+            System.out.print("The pillar" + (s > 1 ? "s are" : " is") + " engraved in a foreign script: ");
+
+            for(PillarOfOO p: this.pillarOfOOs){
+                System.out.print("<" + p.getName()+ ">  ");
+            }
+
+            System.out.println("What could this mean?");
+        }
+
+
+
+
+    }
+
+    public void setVisionLevel(int v){
+        this.visionLevel = v;
+    }
+
+    public int getVisionLevel(){
+        return this.visionLevel;
+    }
+
 }
