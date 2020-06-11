@@ -18,6 +18,10 @@ public class HealthPotion implements Item {
         System.out.println(message);
     }
 
+    public int getPotency() {
+        return potency;
+    }
+
     @Override
     public char getIcon() {
         return icon;
