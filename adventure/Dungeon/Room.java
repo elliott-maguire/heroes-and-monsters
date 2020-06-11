@@ -91,7 +91,7 @@ public class Room {
                 String m = (room.hasMonster() ? room.getMonster().getIcon()+"" : " ");
                 String h = (room.hasHero()? "&" : " ");
                 String i = (room.hasItem()? room.getItem().getIcon()+"" : " ");
-                row = "" + room.getLeft().toString() + m + h + i + room.getRight().toString();
+                row = room.getLeft().toString() + " " + m + " " + h + " " + i + " " + room.getRight().toString();
                 break;
             case 2:
                 row = room.getDown().toString();
