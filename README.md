@@ -1,3 +1,5 @@
+# Heroes and Monsters
+
 For your final project, you will take the code from the Heroes and Monsters refactoring assignment and add the following features and patterns.
 
 The hero is now randomly placed within a dungeon that is a 5 x 5 2D array (bigger is
